@@ -1,0 +1,48 @@
+.textBox input{
+    width: 260px;
+}
+body{
+    text-align: center;
+    display:flex;
+    min-height:100vh;
+    flex-direction:column;
+    background-color: #4361ee;
+    color:white;
+  
+}
+.main-content{
+    flex-grow:1;
+}
+h1{
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+.table-container {
+   margin-top: 20px;
+   display:flex;
+   justify-content: center;
+}
+footer{
+    margin-bottom: 16px;
+}
+
+.table{
+    background-color: #a8dadc;
+}
+form{
+    margin:20px 0px auto;
+}
+#error{
+    font-weight: bold;
+    color:rgb(73, 6, 6);
+}
+#eat{
+    height:80%;
+}
+a {
+    color:chartreuse;
+    font-weight: bold;
+}
+#warning{
+    margin-top: 20px;
+}
