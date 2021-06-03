@@ -4,7 +4,7 @@ const slots=require("./slots")
 
 //Initializing the app
 const app=express();
-const port=process.env.PORT||3000
+const port=process.env.PORT || 3000;
 //getting the directory path for views
 const viewsPath=path.join(__dirname,"../views");
 const publicPath=path.join(__dirname,"../public");
@@ -35,6 +35,9 @@ app.get("/covid",(req,res)=>{
 app.get("/FAQs",(req,res)=>{
     res.render("FAQs");
 })
+app.get("*",(req,res)=>{
+    res.render("home")
+})
 
 
 
@@ -45,5 +48,5 @@ app.get("/FAQs",(req,res)=>{
 
 //starting server on Test Port 3000
 app.listen(port,()=>{
-    console.log("Server up on Port:3000");
+    console.log("Server up on Port:",port);
 })
