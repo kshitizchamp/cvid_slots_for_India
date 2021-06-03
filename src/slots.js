@@ -11,6 +11,7 @@ const slotsByPin=function(pincode,date,callback){
         url:"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="+pincode+"&date="+date,
         json:true,
         headers: {
+            Host: 'cdn-api.co-vin.in',
             'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36'
           }
     },(error,response)=>{
