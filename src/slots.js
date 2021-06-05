@@ -24,6 +24,10 @@ const slotsByPin=function(pincode,date,callback){
         }
         else if(response.body.error){
             callback("Not a valid entry, Please check the input and try again",undefined);
+
+        }else if(response.body.sessions===undefined){
+            callback("sessions is coming as Undefined",undefined);
+
         }else if(response.body.sessions.length===0){
             callback("No vaccination centers available for this zip code currently,please try again later",undefined);
         }else{
