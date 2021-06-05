@@ -25,37 +25,54 @@ form.addEventListener("submit",(e)=>{
                //console.log(error)
             msg.textContent=data.error;
            }else{
-            console.log("data=>",data.data)
             
-            for(let i=0;i<data.data.length;i++){
-                 tr=document.createElement("tr")
-                trName=tbody.appendChild(tr);
-                     td=document.createElement("td")
-                    td.innerText=data.data[i].name
-                    trName.appendChild(td);
-                     td1=document.createElement("td")
-                    td1.innerText=data.data[i].available_capacity_dose1;
-                    trName.appendChild(td1);
-                     td2=document.createElement("td")
-                    td2.innerText=data.data[i].available_capacity_dose2;
-                    trName.appendChild(td2);
-                     td3=document.createElement("td")
-                    td3.innerText=data.data[i].vaccine;
-                    trName.appendChild(td3);
-                    td4=document.createElement("td")
-                    td4.innerText=data.data[i].address;
-                    trName.appendChild(td4);
-                    td5=document.createElement("td")
-                    td5.innerText=data.data[i].min_age_limit;
-                    trName.appendChild(td5);
-                    td6=document.createElement("td")
-                    td6.innerText=data.data[i].fee_type;
-                    trName.appendChild(td6);
-                
-                
-                //tbody.appendChild(tr).appendChild(td)
+            
+            console.log("data=>",data.data)
+            const filterBySlots= function(el) {
+                if(el.available_capacity===0){
+                    return false
+                }else{
+                    return true;
+                }
+               
             }
-            msg.textContent="Data Processed";
+            const filtered= data.data.filter(filterBySlots);
+            
+            console.log("filter data=>",filtered);
+                if(filtered.length===0){
+                    msg.textContent="No available vaccine slots currently, please try again later"
+                }else{
+                    for(let i=0;i<filtered.length;i++){
+                        tr=document.createElement("tr")
+                       trName=tbody.appendChild(tr);
+                            td=document.createElement("td")
+                           td.innerText=filtered[i].name
+                           trName.appendChild(td);
+                            td1=document.createElement("td")
+                           td1.innerText=filtered[i].available_capacity_dose1;
+                           trName.appendChild(td1);
+                            td2=document.createElement("td")
+                           td2.innerText=filtered[i].available_capacity_dose2;
+                           trName.appendChild(td2);
+                            td3=document.createElement("td")
+                           td3.innerText=filtered[i].vaccine;
+                           trName.appendChild(td3);
+                           td4=document.createElement("td")
+                           td4.innerText=filtered[i].address;
+                           trName.appendChild(td4);
+                           td5=document.createElement("td")
+                           td5.innerText=filtered[i].min_age_limit;
+                           trName.appendChild(td5);
+                           td6=document.createElement("td")
+                           td6.innerText=filtered[i].fee_type;
+                           trName.appendChild(td6);
+                       
+                       
+                       //tbody.appendChild(tr).appendChild(td)
+                   }
+                   msg.textContent="Data Processed";
+                }
+            
            }
             
             

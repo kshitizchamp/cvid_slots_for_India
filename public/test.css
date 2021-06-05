@@ -6,6 +6,7 @@ body{
     display:flex;
     min-height:100vh;
     flex-direction:column;
+    flex-wrap: wrap;
     background-color: #4361ee;
     color:white;
   
@@ -45,4 +46,8 @@ a {
 }
 #warning{
     margin-top: 20px;
+}
+form .radio {
+    
+    margin: 20px auto;
 }

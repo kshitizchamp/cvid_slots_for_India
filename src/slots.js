@@ -10,20 +10,20 @@ const slotsByPin=function(pincode,date,callback){
     request({
         url:"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="+pincode+"&date="+date,
         json:true,
-        headers: {
-            Host: 'cdn-api.co-vin.in',
-            'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36'
-          }
+         headers: {
+             Host: 'cdn-api.co-vin.in',
+             'X-Fowarded-For':'202.91.135.66'
+           }
     },(error,response)=>{
         
        
         
         //console.log(arrayOfPlaces);
         if(error){
-            callback(`Cannot connect to weather api server ${error}`,undefined);
+            callback(`Cannot connect to Co-win API server ${error}`,undefined);
         }
         else if(response.body.error){
-            callback("Not a valid entry",undefined);
+            callback("Not a valid entry, Please check the input and try again",undefined);
         }else if(response.body.sessions.length===0){
             callback("No vaccination centers available for this zip code currently,please try again later",undefined);
         }else{
