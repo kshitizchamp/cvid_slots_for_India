@@ -23,6 +23,7 @@ form.addEventListener("submit",(e)=>{
         response.json().then((data)=>{
            if(data.error){
                //console.log(error)
+               console.log("Parsing the body response here:",data.error)
             msg.textContent=data.error;
            }else{
             
