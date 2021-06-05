@@ -10,10 +10,10 @@ const slotsByPin=function(pincode,date,callback){
     request({
         url:"https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode="+pincode+"&date="+date,
         json:true,
-         headers: {
-             Host: 'cdn-api.co-vin.in',
-             'X-Fowarded-For':'202.91.135.66'
-           }
+        //  headers: {
+        //      Host: 'cdn-api.co-vin.in',
+        //      'X-Fowarded-For':'202.91.135.66'
+        //    }
     },(error,response)=>{
         
        
@@ -26,7 +26,7 @@ const slotsByPin=function(pincode,date,callback){
             callback("Not a valid entry, Please check the input and try again",undefined);
 
         }else if(response.body.sessions===undefined){
-            callback("sessions is coming as Undefined",undefined);
+            callback(response.body,undefined);
 
         }else if(response.body.sessions.length===0){
             callback("No vaccination centers available for this zip code currently,please try again later",undefined);
