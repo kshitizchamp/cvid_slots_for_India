@@ -24,7 +24,7 @@ form.addEventListener("submit",(e)=>{
            if(data.error){
                //console.log(error)
                console.log("Parsing the body response here:",data.error)
-            msg.textContent=data.error;
+            msg.textContent=data.error.message;
            }else{
             
             
